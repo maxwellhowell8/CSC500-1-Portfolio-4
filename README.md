@@ -1,60 +1,43 @@
 # CSC500-1-Portfolio-4
 
-Step 1: Build the ItemToPurchase class with the following specifications:
+class ItemToPurchase:
+    # Default constructor
+    def __init__(self, item_name="none", item_price=0, item_quantity=0):
+        self.item_name = item_name
+        self.item_price = item_price
+        self.item_quantity = item_quantity
 
-Attributes
-item_name (string)
-item_price (float)
-item_quantity (int)
-Default constructor
-Initializes item's name = "none", item's price = 0, item's quantity = 0
-Method
-print_item_cost()
-Example of print_item_cost() output:
-Bottled Water 10 @ $1 = $10
-
-
-Step 2: In the main section of your code, prompt the user for two items and create two objects of the ItemToPurchase class.
-
-Example:
-
-Item 1
-
-Enter the item name:
-
-Chocolate Chips
-
-Enter the item price:
-
-3
-
-Enter the item quantity:
-
-1
-
-Item 2
-
-Enter the item name:
-
-Bottled Water
-
-Enter the item price:
-
-1
-
-Enter the item quantity:
-
-10
+    # Method to print the item cost
+    def print_item_cost(self):
+        total_cost = self.item_price * self.item_quantity
+        print(f"{self.item_name} {self.item_quantity} @ ${self.item_price} = ${total_cost}")
 
 
-Step 3: Add the costs of the two items together and output the total cost.
+# Main section of the code
+def main():
+    # Prompt the user for the first item
+    print("Item 1")
+    item1_name = input("Enter the item name:\n")
+    item1_price = float(input("Enter the item price:\n"))
+    item1_quantity = int(input("Enter the item quantity:\n"))
+    item1 = ItemToPurchase(item1_name, item1_price, item1_quantity)
 
-Example:
+    # Prompt the user for the second item
+    print("\nItem 2")
+    item2_name = input("Enter the item name:\n")
+    item2_price = float(input("Enter the item price:\n"))
+    item2_quantity = int(input("Enter the item quantity:\n"))
+    item2 = ItemToPurchase(item2_name, item2_price, item2_quantity)
 
-TOTAL COST
+    # Display the total cost
+    print("\nTOTAL COST")
+    item1.print_item_cost()
+    item2.print_item_cost()
+    total_cost = (item1.item_price * item1.item_quantity) + (item2.item_price * item2.item_quantity)
+    print(f"Total: ${total_cost}")
 
-Chocolate Chips 1 @ $3 = $3
 
-Bottled Water 10 @ $1 = $10
+# Run the main function
+if __name__ == "__main__":
+    main()
 
-Total: $13
